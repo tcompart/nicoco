@@ -8,6 +8,9 @@
     "type": "git",
     "url": "git://github.com/tcompart/nicoco.git"
   },
+  "scripts": {
+    "postinstall": "node node_modules/bower/bin/bower install"
+  },
   "devDependencies": {
     "autoprefixer": "^6.0.3",
     "bower": "^1.4.1",
@@ -15,6 +18,8 @@
     "connect": "^3.3.5",
     "del": "^2.0.2",
     "gulp": "^3.9.0",
+    "lodash": "^4.0.0",
+    "graceful-fs": "^4.0.0",
     "gulp-angular-templatecache": "^1.8.0",
     "gulp-autoprefixer": "^3.0.2",
     "gulp-bower": "0.0.10",
