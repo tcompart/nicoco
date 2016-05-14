@@ -9,7 +9,10 @@
     "url": "git://github.com/tcompart/nicoco.git"
   },
   "scripts": {
-    "postinstall": "node node_modules/bower/bin/bower install"
+    "postinstall": "node node_modules/bower/bin/bower install",
+    "clean": "node node_modules/gulp/bin/gulp.js clean-all",
+    "build": "node node_modules/gulp/bin/gulp.js",
+    "serve": "node node_modules/gulp/bin/gulp.js server"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.3",
