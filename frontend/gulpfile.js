@@ -139,7 +139,7 @@ gulp.task('copy', function (done) {
 });
 
 gulp.task('package-images', function (done) {
-	return gulp.src(SRC + '/images/**/*.jpg')
+	return gulp.src(SRC + '/images/**/**')
 		.pipe(image({
 			jpegoptim: true
 		}))

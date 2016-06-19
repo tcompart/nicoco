@@ -1,8 +1,8 @@
-angular.module('nicoco').value('family', [	
-	{src: 'images/family/1.jpg', desc: ''},
+angular.module('nicoco').value('family', [
+	{src: 'images/family/1.jpg', desc: 'Überschrift 1'},
 	{src: 'images/family/2.jpg', desc: ''},
 	{src: 'images/family/3.jpg', desc: ''},
-	{src: 'images/family/4.jpg', desc: ''},
+	{src: 'images/family/4.jpg', desc: 'Überschrift 4'},
 	{src: 'images/family/5.jpg', desc: ''},
 	{src: 'images/family/6.jpg', desc: ''},
 	{src: 'images/family/7.jpg', desc: ''},
@@ -19,5 +19,13 @@ angular.module('nicoco').value('family', [
 	{src: 'images/family/18.jpg', desc: ''},
 	{src: 'images/family/19.jpg', desc: ''},
 	{src: 'images/family/20.jpg', desc: ''},
-	{src: 'images/family/21.jpg', desc: ''}
+	{src: 'images/family/21.jpg', desc: ''},
+	{src: 'images/family/22.jpg', desc: ''},
+	{src: 'images/family/23.jpg', desc: ''},
+	{src: 'images/family/24.jpg', desc: ''},
+	{src: 'images/family/25.jpg', desc: ''},
+	{src: 'images/family/26.jpg', desc: ''},
+	{src: 'images/family/27.jpg', desc: ''},
+	{src: 'images/family/28.jpg', desc: ''},
+	{src: 'images/family/29.jpg', desc: ''}
 ]);

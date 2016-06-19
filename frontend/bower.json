@@ -33,7 +33,7 @@
     "bootstrap": "~3.3.6",
     "angular-ui-router": "~0.2.15",
     "angular-messages": "~1.4.8",
-    "ekko-lightbox": "~3.3.3",
+    "ekko-lightbox": "4",
     "masonry": "~3.3.2",
     "imagesloaded": "~3.2.0",
     "more-or-less": "~1.5.1"

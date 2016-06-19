@@ -1,5 +1,5 @@
-angular.module('nicoco').controller('galleryCtrl', ['family', 'portraits', 'pets', 
-	function (family, portraits, pets) {
+angular.module('nicoco').controller('galleryCtrl', ['family', 'portraits', 'weddings',
+	function (family, portraits, weddings) {
 	$('a[data-toggle]').on('click', function (e) {
 		e.preventDefault();
 		var that = $(this);
@@ -11,5 +11,5 @@ angular.module('nicoco').controller('galleryCtrl', ['family', 'portraits', 'pets
 
 	this.family = family;
 	this.portraits = portraits;
-	this.pets = pets;
+	this.weddings = weddings;
 }]);

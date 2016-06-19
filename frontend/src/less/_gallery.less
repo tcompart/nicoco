@@ -1,27 +1,17 @@
 @import '../components/more-or-less/less/css3/columns/_column-count.less';
 
-@media (min-width: 1201px) {
-	#photos {
-		.column-count(6);
-	}
-}
-@media (max-width: 1200px) {
-	#photos {
-		.column-count(5);
-	}
-}
-@media (max-width: 1000px) {
-	#photos {
-		.column-count(4);
-	}
-}
-@media (max-width: 800px) {
-	#photos {
+@media (min-width: 1001px) {
+	.photos {
 		.column-count(3);
 	}
 }
-@media (max-width: 400px) {
-	#photos {
+@media (max-width: 1000px) {
+	.photos {
 		.column-count(2);
+	}
+}
+@media (max-width: 620px) {
+	.photos {
+		.column-count(1);
 	}
 }
