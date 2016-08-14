@@ -109,15 +109,12 @@ function buildScript(name) {
 
 
 gulp.task('build-assets', ['install-deps', 'templates', 'inject'], function () {
-	var assets = useref.assets();
 	return gulp.src(SRC + '/*.html')
-		.pipe(assets)
 		.pipe(gulpif('*.js', sourcemaps.init()))
 		.pipe(gulpif('*.js', uglify()))
 		.pipe(gulpif('*.js', rev()))
 		.pipe(gulpif('*.css', buildStyles()))
 		.pipe(sourcemaps.write('./'))
-		.pipe(assets.restore())
 		.pipe(useref())
 		.pipe(revReplace({canonicalUris: false}))
 		.pipe(gulp.dest(APP_DEST));
