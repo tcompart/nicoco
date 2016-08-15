@@ -5,7 +5,5 @@
 target
 
 dist
-composer.lock
 src/components
-src/server/libs
 src/app/templates/template.js
