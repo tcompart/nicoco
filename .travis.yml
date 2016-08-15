@@ -2,8 +2,6 @@ sudo: required
 
 language: java
 
-script: mvn package -Popenshift
-
 jdk: openjdk8
 
 services: docker
