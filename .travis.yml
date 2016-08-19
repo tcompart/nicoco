@@ -11,11 +11,13 @@ after_success:
 - git config --global push.default simple
 - git add --all
 - git commit -am "Travis change"
+- git push origin master
 deploy:
   provider: openshift
   user: torsten.compart@gmail.com
   password:
-    secure: T2Zn4WHfj8GueJ4Jos2N41ds2eQFYTzy6+c92drvcDNeguxdr9eyYefsXX5hHqC+3fGE9YngttBbakHfaYgec5trmMu7Vl9dgBKn4IN/+fVieX+PcXL/fY01RA8Z8un59BdFuIAmOzIVsiUKZnBHWg1SP4MzOlUglrlcbMIxIzShpo8G0lm7wpToYebB26EweeTEdep4fleAmnJMhqvgiHh3dw8tfNyPsJHeQ2uGW9+VliuciLr8pfQ1R0+9/n6yWx7ZSGFWvGnI/OLGei5NBvRlopbCGx2RxrDFXJdCdOb0ROJ1DOZtDiTULb+zCxxi2K2is1K4Wlw+3XGGhNhIchF3ixp4ACA4b9UCXy4f2gK4rb6YBbpnKyKP5LXd3rwRnm7Wob8FvRDUP4Z8W/Gr/tPCVCrkNeqz/u6z5EwAQ2zBIp/VPOjMylQeGIAAQSFhuhyal7Zqi2grTfmrLGTtbobPfETDaGR60U8jQyiAAuVkLpjuXmu/bD37miuAcnaMjYthgyGj+jJtJf4X94G8QNYj/QFSOyId41z/wIn/664ghjYLquvXI3UXGAy8J6Jd7nt7tS30FMrwh+K76AfdBGlJdw3ZZBYbL0zj+nlR13IOazs7W7+Jl48h6MHIWDVGVWYVZL3WOFvVj2I7yoIV+o6fmzVmftOujkqLh747WLM=
-  app: backend
+    secure: TIYRVN12XYRJ5NI9KsQ9Jc7Y76ddjsKRxTJxwZ++Z+SCZrdj6qZDc6sy7NQWHeBry4belMl5cf7VAUWuU0wq2PZ4HipUC/vsJrnjkCMfUCC+k19tUIOQAhi6v2BQ05xDJPNuqRlr4dZ0HojlLO9iQFEoQJ+MF08LK+1Et3D8aZ0g6t+NWx/wIBiDmTUkqXxv6zpemmHKV7cs/hvLLr1iz8JIhp61kbSpqWcnYI256gRmE4RGPWEFX+i9XLVtnN45Z1rAXGuloS3H9ihIpbciYPcobCqpklilG9JUmXvqnF9TImcR/O7lk5jwu0wu+njVGRV2nqSSnM8mvhGOACsuMEUyfZqOKMpqyulWIKOuYNREUlOjkre45DbKn2lI8ia6JJl4cPVIHDR6LiZpCobH1ihI9X/KFCPEVS5CXnEU/uCYm2RKxEuGbkns5bOvhmP9wgO3G9xjsyN/OsudxEz69TRzcqbi7cQZ9h3UaiY4nBE1Dtb1TbABU1gQyRp/FnS+GU7JLJGL0a3dMupzkgg8w8YRK0XskEIZruRe9vEHUChG/G2tJO9JYJt5n8iDSQyRZoosN87MFaPqmBztko8F8P5UbPqyGOO6JNYasg2eRQ6ivUAeBRNhpzBkD4By8Efvo6HKGYByDQ8eXiHwe8BAtHYiTvxKOH+t9alxUGWU3rQ=
+  app: nicoco
   domain: nicoco
-  on: master
+  on:
+    repo: tcompart/nicoco
