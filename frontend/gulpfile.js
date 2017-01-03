@@ -37,10 +37,11 @@ var SRC = './src',
   APP_DEST = './dist';
 
 var CONFIG = {};
-function configure() {
+function configure(done) {
   var dev = (!!gutil.env.type && gutil.env.type === 'dev');
   CONFIG.BUILD = dev ? SRC : APP_DEST;
   CONFIG.ISDEV = dev;
+  done();
 }
 
 
@@ -76,19 +77,45 @@ gulp.task('templates', function () {
     .pipe(gulp.dest(APP_SRC + '/templates'));
 });
 
-gulp.task('compile-less', ['install-deps'], function () {
+function installBowerComponents(done) {
+  bower();
+  done();
+}
+
+gulp.task('install-deps', gulp.series(installBowerComponents, function () {
+  return gulp.src(SRC + '/*.html')
+    .pipe(wiredep())
+    .pipe(gulp.dest(SRC));
+}));
+
+gulp.task('copy', function () {
+  gulp.src([SRC + '/*.*', SRC + '/.*', '!' + SRC + '/*.html'])
+    .pipe(gulp.dest(APP_DEST));
+  return gulp.src([SRC + '/components/bootstrap/fonts/**'])
+    .pipe(gulp.dest(APP_DEST + '/fonts'));
+});
+
+gulp.task('package-images', function () {
+  return gulp.src(SRC + '/images/**/**')
+    .pipe(image({
+      jpegoptim: true
+    }))
+    .pipe(gulp.dest(APP_DEST + '/images'));
+});
+
+gulp.task('compile-less', gulp.series('install-deps', function () {
   return gulp.src(SRC + "/less/main.less")
     .pipe(plumber({errorHandler: errorLog}))
     .pipe(less({compress: true}))
     .pipe(plumber.stop())
     .pipe(gulp.dest(SRC + '/components'));
-});
+}));
 
-gulp.task('inject', ['compile-less'], function () {
+gulp.task('injectSources', gulp.series('compile-less', function () {
   return gulp.src(SRC + '/*.html')
     .pipe(inject(gulp.src([APP_SRC + '/**/*.js', SRC + '/components/*.css'], {read: false}), {relative: true}))
     .pipe(gulp.dest(SRC));
-});
+}));
 
 var buildStyles = lazypipe()
   .pipe(plumber, {errorHandler: errorLog})
@@ -106,8 +133,7 @@ function buildScript(name) {
     .pipe(log, "Finished script " + name)();
 }
 
-
-gulp.task('build-assets', ['install-deps', 'templates', 'inject'], function () {
+gulp.task('build-assets', gulp.series('install-deps', 'templates', 'injectSources', function () {
   return gulp.src(SRC + '/*.html')
     .pipe(gulpif('*.js', sourcemaps.init()))
     .pipe(gulpif('*.js', uglify()))
@@ -117,45 +143,38 @@ gulp.task('build-assets', ['install-deps', 'templates', 'inject'], function () {
     .pipe(useref())
     .pipe(revReplace({canonicalUris: false}))
     .pipe(gulp.dest(APP_DEST));
-});
+}));
 
-gulp.task('install-deps', function () {
-  bower();
-  return gulp.src(SRC + '/*.html')
-    .pipe(wiredep())
-    .pipe(gulp.dest(SRC));
-});
+/**/
+/* ########### CLEAN #################### */
+/**/
+function cleanDist(done) {
+  return del([APP_DEST], done);
+}
 
-gulp.task('copy', function (done) {
-  gulp.src([SRC + '/*.*', SRC + '/.*', '!' + SRC + '/*.html'])
-    .pipe(gulp.dest(APP_DEST));
-  return gulp.src([SRC + '/components/bootstrap/fonts/**'])
-    .pipe(gulp.dest(APP_DEST + '/fonts'));
-});
+function cleanTemplateCache(done) {
+  return del([APP_SRC + '/templates'], done);
+}
 
-gulp.task('package-images', function (done) {
-  return gulp.src(SRC + '/images/**/**')
-    .pipe(image({
-      jpegoptim: true
-    }))
-    .pipe(gulp.dest(APP_DEST + '/images'));
-});
+function cleanModules(done) {
+  return del(['./node_modules'], done);
+}
 
-gulp.task('build', ['clean'], function (done) {
-  runSequence(['build-assets', 'package-images', 'copy'], done);
-});
+function cleanComponents(done) {
+  return del(['./src/components'], done);
+}
 
-gulp.task('build.dev', ['clean'], function (done) {
-  runSequence(['templates', 'inject'], done);
-});
+gulp.task('clean-all', gulp.series(cleanDist, cleanComponents, cleanTemplateCache, cleanModules));
+
+gulp.task('build', gulp.series(cleanDist, 'build-assets', 'package-images', 'copy'));
 
 /**/
 /* ########### SERVER #################### */
 /**/
 
 gulp.task('watch', function (done) {
-  gulp.watch([SRC + '/**/*.*', '!' + SRC + '/**/template.js'], ['build.it']);
-  return done;
+  gulp.watch([SRC + '/**/*.*', '!' + SRC + '/**/template.js'], gulp.series('build'));
+  done();
 });
 
 gulp.task('php', function () {
@@ -169,44 +188,6 @@ gulp.task('php', function () {
   });
 });
 
-gulp.task('build.it', function (done) {
-  configure();
-  if (CONFIG.ISDEV) {
-    return runSequence('build.dev', done);
-  } else {
-    return runSequence('build', done);
-  }
-});
+gulp.task('server', gulp.series(configure, 'build', gulp.parallel('php', 'watch')));
 
-gulp.task('server', function (done) {
-  runSequence('build.it', 'php', 'watch', done);
-});
-
-/**/
-/* ########### CLEAN #################### */
-/**/
-gulp.task('clean-dist', function () {
-  return del(APP_DEST);
-});
-
-gulp.task('clean', ['clean-dist'], function () {
-});
-
-gulp.task('clean-templateCache', function () {
-  return del(APP_SRC + '/templates');
-});
-
-gulp.task('clean-modules', function () {
-  return del('./node_modules');
-});
-
-gulp.task('clean-components', function () {
-  return del('./src/components');
-});
-
-gulp.task('clean-all', function (done) {
-  runSequence(['clean', 'clean-components', 'clean-templateCache', 'clean-modules'], done);
-});
-
-gulp.task('default', ['build'], function () {
-});
+gulp.task('default', gulp.series('build'));
