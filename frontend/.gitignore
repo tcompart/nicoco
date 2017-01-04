@@ -1,9 +1,0 @@
-*.iml
-*.ipr
-*.iws
-
-target
-
-dist
-src/components
-src/app/templates/template.js

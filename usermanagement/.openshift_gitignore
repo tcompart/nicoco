@@ -1,7 +1,0 @@
-# Ignore everything
-*
-
-# except for .gitignore
-!.gitignore
-!.openshift
-!target/

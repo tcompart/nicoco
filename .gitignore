@@ -4,3 +4,12 @@ node_modules
 .tmp
 .DS_Store
 npm-debug.log
+*.iml
+*.ipr
+*.iws
+
+target
+
+dist
+src/components
+src/app/templates/template.js
