@@ -241,6 +241,8 @@ AddDefaultCharset utf-8
 
 <IfModule mod_rewrite.c>
    RewriteCond %{HTTPS} !=on
+   RewriteCond %{HTTP_HOST} ^backend\.nicoco\.de$ [NC]
+   RewriteRule ^ http://backend-nicoco.rhcloud.com/%{REQUEST_URI} [L,NE,P]
    RewriteCond %{HTTP_HOST} ^nicoco\.de [NC]
    RewriteCond %{SERVER_ADDR} !=127.0.0.1
    RewriteCond %{SERVER_ADDR} !=::1
