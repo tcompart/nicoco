@@ -6,7 +6,7 @@ angular.module('nicoco').controller('loginCtrl', ['login', function (login) {
 	this.login = function () {
 		me.submitted = true;
 		var valid = this.loginForm.$valid;
-    me.failed = !valid;
+		me.failed = !valid;
 		if (valid) {
 			var username = this.loginForm.username.$modelValue;
 			login.token(username).then(function () {

@@ -11,7 +11,9 @@
   "scripts": {
     "postinstall": "node node_modules/bower/bin/bower install",
     "clean": "node node_modules/gulp/bin/gulp.js clean-all",
-    "build": "node node_modules/gulp/bin/gulp.js",
+    "lint": "eslint src/app",
+    "lint-fix": "eslint src/app --fix",
+    "build": "npm run lint && node node_modules/gulp/bin/gulp.js",
     "serve": "node node_modules/gulp/bin/gulp.js server"
   },
   "devDependencies": {
@@ -20,6 +22,7 @@
     "browser-sync": "^2.9.11",
     "connect": "^3.3.5",
     "del": "^2.0.2",
+    "eslint": "^3.19.0",
     "event-stream": "^3.3.2",
     "graceful-fs": "^4.0.0",
     "gulp": "github:gulpjs/gulp#4.0",
