@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row row-centered">
 		<div class="row">
-			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-centered">
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-centered">
 				<a class="toggle" data-toggle="portraits" href="#">
 					<div class="thumbnail">
 						<img src="/images/portraits/8.jpg" class="img-responsive thumbnail" alt="Portraits">
@@ -10,7 +10,7 @@
 				</a>
 			</div>
 
-			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-centered">
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-centered">
 				<a class="toggle" data-toggle="family" href="#">
 					<div class="thumbnail">
 						<img src="/images/family/5.jpg" class="img-responsive thumbnail" alt="Familien">
@@ -19,12 +19,22 @@
 				</a>
 			</div>
 
-			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-centered">
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-centered">
 				<a class="toggle" data-toggle="weddings" href="#">
 					<div class="thumbnail">
 						<img src="/images/wedding/1.png" class="img-responsive thumbnail" alt="Hochzeiten">
 
 						<div class="caption"><strong>Hochzeiten</strong></div>
+					</div>
+				</a>
+			</div>
+
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-centered">
+				<a class="toggle" data-toggle="horses" href="#">
+					<div class="thumbnail">
+						<img src="/images/horses/1.png" class="img-responsive thumbnail" alt="Perde">
+
+						<div class="caption"><strong>Perde</strong></div>
 					</div>
 				</a>
 			</div>
@@ -44,6 +54,11 @@
 	<div data-toggle="portraits" class="row collapse">
 		<h1>Portraits</h1>
 		<masonry input="gallery.portraits" gallery="'portraits'"></masonry>
+	</div>
+
+	<div data-toggle="horses" class="row collapse">
+		<h1>Pferde</h1>
+		<masonry input="gallery.horses" gallery="'horses'"></masonry>
 	</div>
 
 </div>

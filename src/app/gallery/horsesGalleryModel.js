@@ -1,0 +1,17 @@
+angular.module('nicoco').value('horses', [
+	{src: 'images/horses/1.png', desc: ''},
+	{src: 'images/horses/2.png', desc: ''},
+	{src: 'images/horses/3.png', desc: ''},
+	{src: 'images/horses/4.png', desc: ''},
+	{src: 'images/horses/5.png', desc: ''},
+	{src: 'images/horses/6.png', desc: ''},
+	{src: 'images/horses/7.png', desc: ''},
+	{src: 'images/horses/8.png', desc: ''},
+	{src: 'images/horses/9.png', desc: ''},
+	{src: 'images/horses/10.png', desc: ''},
+	{src: 'images/horses/11.png', desc: ''},
+	{src: 'images/horses/12.png', desc: ''},
+	{src: 'images/horses/13.png', desc: ''},
+	{src: 'images/horses/14.png', desc: ''},
+	{src: 'images/horses/15.png', desc: ''},
+]);
