@@ -1,4 +1,11 @@
 angular.module('nicoco').value('weddings', [
+	{src: 'images/wedding/0_1.png', desc: ''},
+	{src: 'images/wedding/0_2.png', desc: ''},
+	{src: 'images/wedding/0_3.png', desc: ''},
+	{src: 'images/wedding/0_4.png', desc: ''},
+	{src: 'images/wedding/0_5.png', desc: ''},
+	{src: 'images/wedding/0_6.png', desc: ''},
+	{src: 'images/wedding/0_7.png', desc: ''},
 	{src: 'images/wedding/1.png', desc: ''},
 	{src: 'images/wedding/2.png', desc: ''},
 	{src: 'images/wedding/3.png', desc: ''},
