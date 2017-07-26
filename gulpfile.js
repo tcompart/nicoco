@@ -1,6 +1,6 @@
 /*global require*/
 
-var gulp = require('gulp'),
+const gulp = require('gulp'),
 	gutil = require('gulp-util'),
 	useref = require('gulp-useref'),
 	revReplace = require('gulp-rev-replace'),
@@ -15,23 +15,23 @@ var gulp = require('gulp'),
 	plumber = require('gulp-plumber'),
 	sourcemaps = require('gulp-sourcemaps');
 
-var image = require('gulp-image');
+const image = require('gulp-image');
 
-var bower = require('gulp-bower'),
+const bower = require('gulp-bower'),
 	wiredep = require('wiredep').stream;
 
-var connect = require('gulp-connect-php');
+const connect = require('gulp-connect-php');
 
-var del = require('del'),
+const del = require('del'),
 	rev = require('gulp-rev');
 
-var SRC = './src',
+const SRC = './src',
 	APP_SRC = './src/app',
 	APP_DEST = './dist';
 
-var CONFIG = {};
+const CONFIG = {};
 function configure(done) {
-	var dev = (!!gutil.env.type && gutil.env.type === 'dev');
+	const dev = (!!gutil.env.type && gutil.env.type === 'dev');
 	CONFIG.BUILD = dev ? SRC : APP_DEST;
 	CONFIG.ISDEV = dev;
 	done();
@@ -56,7 +56,7 @@ gulp.task('templates', function () {
 			module: 'nicoco',
 			templateHeader: '/* eslint-disable */\nangular.module("<%= module %>"<%= standalone %>).run(["$templateCache", function($templateCache) {',
 			transformUrl: function (url) {
-				var start = url.lastIndexOf('/');
+				const start = url.lastIndexOf('/');
 				return url.substring(start);
 			}
 		}))
@@ -77,7 +77,7 @@ gulp.task('install-deps', gulp.series(installBowerComponents, function () {
 gulp.task('copy', function () {
 	gulp.src([SRC + '/*.*', SRC + '/.*', '!' + SRC + '/*.html'])
 		.pipe(gulp.dest(APP_DEST));
-	return gulp.src([SRC + '/components/bootstrap/fonts/**'])
+	return gulp.src([SRC + '/components/bootstrap/dist/fonts/**'])
 		.pipe(gulp.dest(APP_DEST + '/fonts'));
 });
 
@@ -105,7 +105,7 @@ gulp.task('injectSources', gulp.series('compile-less', function () {
 		.pipe(gulp.dest(SRC));
 }));
 
-var buildStyles = lazypipe()
+const buildStyles = lazypipe()
 	.pipe(plumber, {errorHandler: errorLog})
 	.pipe(csso)
 	.pipe(autoprefixer)
