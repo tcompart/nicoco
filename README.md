@@ -8,7 +8,7 @@ You just need to run ```npm install``` and all dependencies are installed. This 
 Currently this project support three different modes:
 
 * ```npm run build```
-* ```npm run serve```
+* ```npm start```
 * ```npm run clean```
 
 The local serve mode requires an existing PHP installation. This part is currently work in progress
