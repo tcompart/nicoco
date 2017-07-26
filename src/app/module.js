@@ -1,5 +1,5 @@
 angular.module('nicoco', ['ui.router', 'ngMessages'])
-  .constant('wordpress', 'http://www.nicoco.de/wordpress')
+  .constant('wordpress', 'https://www.nicoco.de/wordpress')
   .run(['$rootScope', '$location', '$window', function ($rootScope, $location, $window) {
 	$rootScope.$on('$stateChangeSuccess', function () {
 		if ($window.ga) {

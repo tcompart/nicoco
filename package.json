@@ -14,7 +14,7 @@
     "lint": "eslint src/app",
     "lint-fix": "eslint src/app --fix",
     "build": "npm run lint && node node_modules/gulp/bin/gulp.js",
-    "serve": "node node_modules/gulp/bin/gulp.js server"
+    "start": "node node_modules/gulp/bin/gulp.js server"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.3",
