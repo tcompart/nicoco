@@ -240,18 +240,13 @@ AddDefaultCharset utf-8
 # subdomains for certain parts of your website.
 
 <IfModule mod_rewrite.c>
-   RewriteCond %{HTTPS} !=on
-   RewriteCond %{HTTP_HOST} ^backend\.nicoco\.de$ [NC]
-   RewriteRule ^ http://backend-nicoco.rhcloud.com/%{REQUEST_URI} [L,NE,P]
-   RewriteCond %{HTTP_HOST} ^nicoco\.de [NC]
-   RewriteCond %{SERVER_ADDR} !=127.0.0.1
-   RewriteCond %{SERVER_ADDR} !=::1
-   RewriteRule ^(.*)$ http://www.nicoco.de/$1 [R=301,L]
-   RewriteCond %{HTTPS} !=on
-   RewriteCond %{REQUEST_URI} !^wordpress
-   RewriteCond %{REQUEST_FILENAME} !-f
-   RewriteCond %{REQUEST_FILENAME} !-d
-   RewriteRule ^(.*)$ /#!/$1 [L]
+   RewriteEngine On
+   #First rewrite any request to the wrong domain to use the correct one (here www.)
+   RewriteCond %{HTTP_HOST} !^www\.
+   RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+   #Now, rewrite to HTTPS:
+   RewriteCond %{HTTPS} off
+   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
 
 <IfModule mod_rewrite.c>
@@ -261,8 +256,8 @@ AddDefaultCharset utf-8
   RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
   RewriteRule ^ - [L]
 
-  # If the requested resource doesn't exist, use index.html
-  RewriteRule ^ /index.html
+  # If the requested resource doesn't exist, use default entry point: home
+  RewriteRule ^ /home
 </IfModule>
 
 # ##############################################################################
