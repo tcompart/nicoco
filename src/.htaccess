@@ -257,7 +257,7 @@ AddDefaultCharset utf-8
   RewriteRule ^ - [L]
 
   # If the requested resource doesn't exist, use default entry point: home
-  RewriteRule ^ /home
+  RewriteRule ^ /
 </IfModule>
 
 # ##############################################################################
