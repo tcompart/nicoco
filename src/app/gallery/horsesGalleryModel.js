@@ -4,7 +4,7 @@ angular.module('nicoco').value('horses', [
 	{src: 'images/horses/3.jpg', desc: ''},
 	{src: 'images/horses/4.jpg', desc: ''},
 	{src: 'images/horses/5.jpg', desc: ''},
-	{src: 'images/horses/18.jpg', desc: 'nina schnitzenbaumer workshop 2017'},
+	{src: 'images/horses/18.jpg', desc: 'alexandra evang workshop 2017 (Renesse) - www.alexandraevang.de'},
 	{src: 'images/horses/6.jpg', desc: ''},
 	{src: 'images/horses/7.jpg', desc: ''},
 	{src: 'images/horses/8.jpg', desc: ''},
