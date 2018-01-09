@@ -11,10 +11,11 @@ angular.module('nicoco').value('portraits', [
 	{src: 'images/portraits/9.jpg'},
 	{src: 'images/portraits/10.jpg'},
 	{src: 'images/portraits/12.jpg'},
-	{src: 'images/portraits/14.jpg'},
 	{src: 'images/portraits/15.jpg'},
+	{src: 'images/portraits/14.jpg'},
 	{src: 'images/portraits/16.jpg'},
 	{src: 'images/portraits/17.jpg'},
 	{src: 'images/portraits/18.jpg'},
-	{src: 'images/portraits/20.jpg'}
+	{src: 'images/portraits/20.jpg'},
+	{src: 'images/portraits/21.jpg'},
 ]);
