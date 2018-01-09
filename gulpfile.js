@@ -3,6 +3,7 @@
 const gulp = require('gulp'),
 	gutil = require('gulp-util'),
 	useref = require('gulp-useref'),
+	version = require('gulp-version-number'),
 	revReplace = require('gulp-rev-replace'),
 	gulpif = require('gulp-if'),
 	lazypipe = require('lazypipe'),
@@ -10,6 +11,7 @@ const gulp = require('gulp'),
 	less = require('gulp-less'),
 	csso = require('gulp-csso'),
 	inject = require('gulp-inject'),
+	htmlmin = require('gulp-htmlmin'),
 	minifyHtml = require('gulp-minify-html'),
 	templateCache = require('gulp-angular-templatecache'),
 	plumber = require('gulp-plumber'),
@@ -81,6 +83,20 @@ gulp.task('copy', function () {
 		.pipe(gulp.dest(APP_DEST + '/fonts'));
 });
 
+gulp.task('html', function () {
+	var versionConfig = {
+		'value': '%MDS%',
+		'append': {
+			'key': 'v',
+			'to': ['css', 'js']
+		}
+	};
+	return gulp.src(APP_DEST + '/*.html')
+		.pipe(htmlmin({collapseWhitespace: true}))
+		.pipe(version(versionConfig))
+		.pipe(gulp.dest(APP_DEST));
+});
+
 gulp.task('package-images', function () {
 	return gulp.src(SRC + '/images/**/**')
 		.pipe(image({
@@ -141,7 +157,7 @@ function cleanComponents(done) {
 
 gulp.task('clean-all', gulp.series(cleanDist, cleanComponents, cleanTemplateCache, cleanModules));
 
-gulp.task('build', gulp.series(cleanDist, 'build-assets', 'package-images', 'copy'));
+gulp.task('build', gulp.series(cleanDist, 'build-assets', 'package-images', 'copy', 'html'));
 
 /**/
 /* ########### SERVER #################### */
