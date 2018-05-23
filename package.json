@@ -8,6 +8,10 @@
     "type": "git",
     "url": "git://github.com/tcompart/nicoco.git"
   },
+  "engines": {
+    "npm": "5.6.0",
+    "node": "8.11.2"
+  },
   "scripts": {
     "postinstall": "node node_modules/bower/bin/bower install",
     "clean": "node node_modules/gulp/bin/gulp.js clean-all",

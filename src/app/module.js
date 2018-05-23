@@ -38,9 +38,9 @@ angular.module('nicoco', ['ui.router', 'ngMessages'])
 		templateUrl: '/offer.html'
 	});
 	$stateProvider.state({
-		name: 'login',
-		url: '/login',
-		templateUrl: '/login.html'
+		name: 'privacy',
+		url: '/privacy',
+		templateUrl: '/privacy.html'
 	});
 	$stateProvider.state({
 		name: 'impressum',
