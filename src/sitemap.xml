@@ -5,37 +5,37 @@
   xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>http://www.nicoco.de/</loc>
+    <loc>https://www.nicoco.de/</loc>
     <lastmod>2017-01-03T18:00:00+00:00</lastmod>
     <changefreq>never</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>http://www.nicoco.de/home</loc>
+    <loc>https://www.nicoco.de/home</loc>
     <lastmod>2017-01-03T18:00:00+00:00</lastmod>
     <changefreq>never</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>http://www.nicoco.de/gallery</loc>
+    <loc>https://www.nicoco.de/gallery</loc>
     <lastmod>2017-01-03T18:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.nicoco.de/aboutme</loc>
+    <loc>https://www.nicoco.de/aboutme</loc>
     <lastmod>2017-01-03T18:00:00+00:00</lastmod>
     <changefreq>never</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>http://www.nicoco.de/impressum</loc>
+    <loc>https://www.nicoco.de/impressum</loc>
     <lastmod>2017-01-03T18:00:00+00:00</lastmod>
     <changefreq>never</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.nicoco.de/offer</loc>
+    <loc>https://www.nicoco.de/offer</loc>
     <lastmod>2017-01-03T18:00:00+00:00</lastmod>
     <changefreq>never</changefreq>
     <priority>0.90</priority>
