@@ -26,7 +26,7 @@
     "browser-sync": "^2.9.11",
     "connect": "^3.3.5",
     "del": "^2.0.2",
-    "eslint": "^3.19.0",
+    "eslint": "^4.18.2",
     "event-stream": "^3.3.2",
     "graceful-fs": "^4.0.0",
     "gulp": "github:gulpjs/gulp#4.0",
@@ -57,9 +57,9 @@
     "gulp-watch": "^4.3.5",
     "lazypipe": "^1.0.1",
     "lodash": "^4.0.0",
-    "open": "0.0.5",
+    "open": "^6.4.0",
     "path": "^0.12.7",
-    "run-sequence": "^1.2.2",
+    "run-sequence": "^2.1.1",
     "vinyl-paths": "^2.0.0",
     "wiredep": "^4.0.0"
   }
