@@ -39,7 +39,7 @@
     "gulp-csso": "^2.0.0",
     "gulp-htmlmin": "4.0.0",
     "gulp-if": "^2.0.0",
-    "gulp-image": "^2.4.1",
+    "gulp-image": "^5.1.0",
     "gulp-inject": "^4.1.0",
     "gulp-less": "^3.0.3",
     "gulp-minify-html": "^1.0.4",
