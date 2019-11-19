@@ -33,7 +33,7 @@
     "gulp-angular-templatecache": "^2.0.0",
     "gulp-autoprefixer": "^3.0.2",
     "gulp-bower": "0.0.13",
-    "gulp-cli": "^1.2.2",
+    "gulp-cli": "^2.2.0",
     "gulp-concat": "^2.6.0",
     "gulp-connect-php": "0.0.5",
     "gulp-csso": "^2.0.0",
