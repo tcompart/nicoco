@@ -30,7 +30,7 @@
     "event-stream": "^3.3.2",
     "graceful-fs": "^4.0.0",
     "gulp": "github:gulpjs/gulp#4.0",
-    "gulp-angular-templatecache": "^2.0.0",
+    "gulp-angular-templatecache": "^3.0.0",
     "gulp-autoprefixer": "^3.0.2",
     "gulp-bower": "0.0.13",
     "gulp-cli": "^1.2.2",
