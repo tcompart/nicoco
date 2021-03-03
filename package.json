@@ -57,7 +57,7 @@
     "gulp-watch": "^4.3.5",
     "lazypipe": "^1.0.1",
     "lodash": "^4.0.0",
-    "open": "^6.4.0",
+    "open": "^8.0.1",
     "path": "^0.12.7",
     "run-sequence": "^2.1.1",
     "vinyl-paths": "^2.0.0",
