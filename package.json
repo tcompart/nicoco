@@ -21,7 +21,7 @@
     "start": "node node_modules/gulp/bin/gulp.js server"
   },
   "devDependencies": {
-    "autoprefixer": "^6.0.3",
+    "autoprefixer": "^10.3.1",
     "bower": "^1.4.1",
     "browser-sync": "^2.9.11",
     "connect": "^3.3.5",
